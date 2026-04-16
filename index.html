@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGE VPN</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* MAIN TITLE */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #f87171, #fb7185);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f87171;
+  color: #f87171;
+}
+
+/* Glass Card */
+.card, .server-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Info */
+.info {
+  text-align: center;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ef4444, #f97316);
+  color: white;
+  transition: 0.3s;
+}
+
+.btn.copied {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+/* Server */
+.server-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.server-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.status {
+  font-size: 13px;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+.server-info {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Guide */
+.guide {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.warning {
+  margin-top: 10px;
+  color: #facc15;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="title">🚀 AGE VPN</div>
+
+  <!-- KEY SECTION -->
+  <div class="card">
+    <div class="section-title">🔑 Access Key</div>
+
+    <div class="info">
+      Data: 1000 GB <br>
+      Exp: 2026-05-03
+    </div>
+
+    <button class="btn" id="copyBtn" onclick="copyKey()">📋 COPY KEY</button>
+  </div>
+
+  <!-- SERVER SECTION -->
+  <div class="server-card">
+    <div class="section-title">🌍 Server Info</div>
+
+    <div class="server-top">
+      <div class="server-name">🇹🇭 Thailand Server</div>
+      <div class="status">● Online</div>
+    </div>
+
+    <div class="server-info">
+      📶 Speed: Good <br>
+      🌍 Ping: 35ms
+    </div>
+  </div>
+
+  <!-- GUIDE SECTION -->
+  <div class="card guide">
+    <div class="section-title">📌 အသုံးပြုနည်း</div>
+
+    1. V2RayTun install<br>
+    2. COPY KEY နှိပ်ပါ<br>
+    3. App ထဲ paste လုပ်ပါ<br>
+    4. Connect လုပ်ပါ<br>
+
+    <div class="warning">⚠️ မရရင် restart လုပ်ပါ</div>
+  </div>
+
+</div>
+
+<script>
+function copyKey() {
+  const key = "vless://5ae34223-7fcb-43bd-9b12-255f8abbf29d@117.18.127.172:3886?type=tcp&encryption=none&security=none#For%20mm-brykadll";
+
+  const textarea = document.createElement("textarea");
+  textarea.value = key;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  const btn = document.getElementById("copyBtn");
+
+  btn.innerText = "Copied ✅";
+  btn.classList.add("copied");
+
+  setTimeout(() => {
+    btn.innerText = "📋 COPY KEY";
+    btn.classList.remove("copied");
+  }, 2000);
+}
+</script>
+
+</body>
+</html>

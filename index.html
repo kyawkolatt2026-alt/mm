@@ -3,119 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGE VPN</title>
+<title>AGE VPN - Premium Service</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600&display=swap');
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a; /* Deep Navy Blue */
   color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-.container {
-  max-width: 400px;
-  margin: auto;
+/* PC View အတွက် Container ကို အလယ်ပို့ပြီး Width ကန့်သတ်ထားသည် */
+.main-wrapper {
+  width: 100%;
+  max-width: 500px; /* PC မှာကြည့်ရင် Mobile ဖုန်းပုံစံ သေသပ်နေစေရန် */
+  background: #111827;
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
   padding: 20px;
 }
 
-/* --- ခေါင်းစဉ်ဒီဇိုင်း --- */
+/* --- ခေါင်းစဉ်ဒီဇိုင်း (Professional Look) --- */
 .header-box {
   text-align: center;
-  margin-bottom: 30px;
-  padding: 20px 0;
+  padding: 40px 0 30px 0;
 }
 
 .title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 38px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #fff;
-  text-shadow: 0 0 10px #f87171, 0 0 20px #fb7185, 0 0 30px #f43f5e;
-  animation: glow 1.5s ease-in-out infinite alternate;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  letter-spacing: -1px;
 }
 
 .subtitle {
-  font-size: 12px;
-  letter-spacing: 4px;
-  color: #fb7185;
-  margin-top: 5px;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #3b82f6; /* Blue Accent */
   text-transform: uppercase;
-  opacity: 0.8;
+  margin-top: 5px;
+  font-weight: 700;
+  opacity: 0.9;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #f87171, 0 0 20px #fb7185; }
-  to { text-shadow: 0 0 20px #fb7185, 0 0 30px #f43f5e, 0 0 40px #ef4444; }
+/* --- Card Styles --- */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .section-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #f87171;
-  color: #f87171;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #3b82f6;
+  text-transform: uppercase;
+  border-left: 4px solid #3b82f6;
+  padding-left: 10px;
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+/* --- VIP Pricing Section --- */
+.vip-pricing-box {
+  background: linear-gradient(145deg, rgba(250, 204, 21, 0.1), rgba(0,0,0,0));
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: 15px;
   padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 15px;
+  text-align: center;
 }
 
+.vip-duration {
+  display: block;
+  font-size: 16px;
+  color: #cbd5e1;
+  margin-bottom: 5px;
+}
+
+.vip-price {
+  display: block;
+  font-size: 35px;
+  font-weight: 800;
+  color: #facc15;
+}
+
+/* --- Buttons --- */
 .btn-link {
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 14px;
+  padding: 16px;
   border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 15px;
-  color: white;
-  transition: 0.3s;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.2s linear;
 }
 
-/* Direct Download Button Style */
-.download-color { 
-  background: linear-gradient(90deg, #3b82f6, #2563eb); 
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-}
-.download-color:active { transform: scale(0.95); }
+.btn-link:active { transform: scale(0.98); }
 
-.vip-buy-btn { background: linear-gradient(90deg, #facc15, #eab308); color: #000; font-size: 14px; padding: 10px; }
+.download-btn { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+.buy-btn { background: #facc15; color: #111827; }
 
+/* --- Redeem List --- */
 .redeem-card {
-  background-color: #2c2f3e;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 15px;
+  background: #1e293b;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 12px;
 }
 
-.card-header { display: flex; align-items: center; margin-bottom: 5px; }
+.card-header { display: flex; align-items: center; margin-bottom: 10px; }
 .logo-circle {
-  width: 40px; height: 40px; border-radius: 50%; display: flex;
-  justify-content: center; align-items: center; font-size: 11px;
+  width: 38px; height: 38px; border-radius: 50%; display: flex;
+  justify-content: center; align-items: center; font-size: 10px;
   font-weight: bold; margin-right: 12px; color: #fff;
 }
 
-.dtac-circle { background-color: #00bfff; }
-.true-circle { background-color: #ff0000; }
-.ais-circle { background-color: #94d500; }
+.dtac-circle { background: #00bfff; }
+.true-circle { background: #ff0000; }
+.ais-circle { background: #94d500; }
 
-.brand-text { color: #f39c12; font-weight: bold; font-size: 16px; }
-.price-text { color: #7f8c8d; font-size: 13px; margin-left: 52px; margin-bottom: 15px; }
+.brand-text { font-weight: 700; font-size: 15px; color: #f39c12; }
+.price-tag { color: #94a3b8; font-size: 13px; margin-left: 50px; display: block; margin-top: -12px; margin-bottom: 12px; }
 
-.dial-action-box {
-  background-color: #1e212d;
+.dial-box {
+  background: #0f172a;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -123,52 +152,55 @@ body {
   padding: 10px 15px;
 }
 
-.code-num { color: #2ecc71; font-size: 18px; font-weight: bold; letter-spacing: 1px; }
-.call-now-btn { background-color: #ff4757; color: white; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-size: 13px; font-weight: bold; }
+.code-text { color: #2ecc71; font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
+.call-btn {
+  background: #ef4444; color: #fff; text-decoration: none;
+  padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+}
 
-.step-item { display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 14px; line-height: 1.5; }
-.step-num {
-  background: #f87171; color: #fff; min-width: 22px; height: 22px;
-  border-radius: 50%; display: flex; justify-content: center;
-  align-items: center; font-size: 12px; margin-right: 10px; margin-top: 2px;
+/* --- Steps --- */
+.step { display: flex; gap: 12px; margin-bottom: 10px; font-size: 13px; color: #94a3b8; line-height: 1.6; }
+.step-n {
+  background: #3b82f6; min-width: 22px; height: 22px; border-radius: 50%;
+  display: flex; justify-content: center; align-items: center; font-size: 11px; font-weight: bold; color: #fff;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="main-wrapper">
 
   <div class="header-box">
-    <div class="title">AGE VPN</div>
-    <div class="subtitle">STAY SAFE • UNLOCK WEB</div>
+    <h1 class="title">AGE VPN</h1>
+    <div class="subtitle">Secure Internet Solution</div>
   </div>
 
   <div class="card">
-    <div class="section-title">📥 Application</div>
-    <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" class="btn-link download-color">
-      🚀 DIRECT DOWNLOAD AGE VPN
+    <div class="section-title">📥 Download App</div>
+    <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" class="download-btn btn-link">
+      🚀 DIRECT DOWNLOAD APK
     </a>
   </div>
 
   <div class="card">
     <div class="section-title">💎 VIP Premium</div>
-    <div style="text-align: center;">
-      <span style="font-size: 18px; font-weight: bold;">Vip (1 Month)</span><br>
-      <span style="font-size: 22px; font-weight: bold; color: #facc15;">50 THB</span>
-      <a href="https://m.me/kyawkolatt4989" class="btn-link vip-buy-btn" target="_blank">
-        💬 ဝယ်ယူရန် ဤနေရာကိုနှိပ်ပါ
-      </a>
+    <div class="vip-pricing-box">
+      <span class="vip-duration">Unlimited Access (1 Month)</span>
+      <span class="vip-price">50 THB</span>
     </div>
+    <a href="https://m.me/kyawkolatt4989" class="buy-btn btn-link" target="_blank">
+      💬 ဝယ်ယူရန် ဆက်သွယ်ပါ
+    </a>
   </div>
 
   <div class="card">
     <div class="section-title">📖 Dtac Game Plan ဝယ်ယူနည်း</div>
-    <div class="step-item"><div class="step-num">1</div> Dtac app ထဲဝင်ပါ။</div>
-    <div class="step-item"><div class="step-num">2</div> Popular services ကိုနှိပ်ပါ။</div>
-    <div class="step-item"><div class="step-num">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
-    <div class="step-item"><div class="step-num">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
-    <div class="step-item"><div class="step-num">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပါ။</div>
+    <div class="step"><div class="step-n">1</div> Dtac app ထဲဝင်ပါ။</div>
+    <div class="step"><div class="step-n">2</div> Popular services (အထူးဝန်ဆောင်မှုများ) ကိုနှိပ်ပါ။</div>
+    <div class="step"><div class="step-n">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
+    <div class="step"><div class="step-n">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
+    <div class="step"><div class="step-n">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပြီး ဝယ်ယူပါ။</div>
   </div>
 
   <div class="card">
@@ -179,10 +211,10 @@ body {
         <div class="logo-circle dtac-circle">dtac</div>
         <div class="brand-text">DTAC JAIDEE</div>
       </div>
-      <div class="price-text">30 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*117*30#</div>
-        <a href="tel:*117*30%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">30 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*117*30#</span>
+        <a href="tel:*117*30%23" class="call-btn">Call Now</a>
       </div>
     </div>
 
@@ -191,10 +223,10 @@ body {
         <div class="logo-circle true-circle">true</div>
         <div class="brand-text">TRUE VDO</div>
       </div>
-      <div class="price-text">85 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*900*8234#</div>
-        <a href="tel:*900*8234%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">85 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*900*8234#</span>
+        <a href="tel:*900*8234%23" class="call-btn">Call Now</a>
       </div>
     </div>
 
@@ -203,10 +235,10 @@ body {
         <div class="logo-circle true-circle">true</div>
         <div class="brand-text">TRUE TWITTER</div>
       </div>
-      <div class="price-text">53 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*900*3509#</div>
-        <a href="tel:*900*3509%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">53 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*900*3509#</span>
+        <a href="tel:*900*3509%23" class="call-btn">Call Now</a>
       </div>
     </div>
 
@@ -215,10 +247,10 @@ body {
         <div class="logo-circle true-circle">true</div>
         <div class="brand-text">TRUE VIBER</div>
       </div>
-      <div class="price-text">53 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*900*3809#</div>
-        <a href="tel:*900*3809%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">53 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*900*3809#</span>
+        <a href="tel:*900*3809%23" class="call-btn">Call Now</a>
       </div>
     </div>
 
@@ -227,10 +259,10 @@ body {
         <div class="logo-circle ais-circle">ais</div>
         <div class="brand-text">AIS PLAY</div>
       </div>
-      <div class="price-text">64 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*777*885#</div>
-        <a href="tel:*777*885%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">64 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*777*885#</span>
+        <a href="tel:*777*885%23" class="call-btn">Call Now</a>
       </div>
     </div>
 
@@ -239,10 +271,10 @@ body {
         <div class="logo-circle ais-circle">ais</div>
         <div class="brand-text">AIS 64 KBPS</div>
       </div>
-      <div class="price-text">32 THB</div>
-      <div class="dial-action-box">
-        <div class="code-num">*777*7067#</div>
-        <a href="tel:*777*7067%23" class="call-now-btn">Call Now</a>
+      <span class="price-tag">32 THB</span>
+      <div class="dial-box">
+        <span class="code-text">*777*7067#</span>
+        <a href="tel:*777*7067%23" class="call-btn">Call Now</a>
       </div>
     </div>
   </div>

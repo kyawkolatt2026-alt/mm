@@ -8,27 +8,32 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600&display=swap');
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  background: #0f172a; 
+}
+
+body {
   font-family: 'Poppins', sans-serif;
-  background: #0f172a; /* Deep Navy Blue */
   color: #fff;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
-/* PC View အတွက် Container ကို အလယ်ပို့ပြီး Width ကန့်သတ်ထားသည် */
 .main-wrapper {
   width: 100%;
-  max-width: 500px; /* PC မှာကြည့်ရင် Mobile ဖုန်းပုံစံ သေသပ်နေစေရန် */
+  max-width: 900px; /* Landscape မှာ ပိုကျယ်ကျယ်ပြနိုင်ရန် width တိုးထားသည် */
   background: #111827;
   min-height: 100vh;
-  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  box-shadow: 0 0 100px rgba(0,0,0,0.6);
   padding: 20px;
+  box-sizing: border-box;
 }
 
-/* --- ခေါင်းစဉ်ဒီဇိုင်း (Professional Look) --- */
+/* --- Header Section --- */
 .header-box {
   text-align: center;
   padding: 40px 0 30px 0;
@@ -49,11 +54,27 @@ body {
 .subtitle {
   font-size: 11px;
   letter-spacing: 5px;
-  color: #3b82f6; /* Blue Accent */
+  color: #3b82f6;
   text-transform: uppercase;
   margin-top: 5px;
   font-weight: 700;
   opacity: 0.9;
+}
+
+/* --- Responsive Grid System --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default: Mobile မှာ တစ်ကွက်ပဲပြသည် */
+  gap: 20px;
+}
+
+/* Landscape သို့မဟုတ် PC View မှာ ၂ ကွက်ပြိုင်ပြရန် */
+@media (min-width: 650px) {
+  .content-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .header-box { grid-column: span 2; } /* Header ကို အပြည့်ယူစေရန် */
+  .redeem-section { grid-column: span 2; } /* Redeem အကွက်ကို အောက်မှာ အပြည့်ပြရန် */
 }
 
 /* --- Card Styles --- */
@@ -61,13 +82,8 @@ body {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
   padding: 20px;
-  margin-bottom: 20px;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: rgba(59, 130, 246, 0.3);
+  height: fit-content;
 }
 
 .section-title {
@@ -113,20 +129,28 @@ body {
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
-  transition: 0.2s linear;
 }
-
-.btn-link:active { transform: scale(0.98); }
 
 .download-btn { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
 .buy-btn { background: #facc15; color: #111827; }
 
-/* --- Redeem List --- */
+/* --- Redeem List Grid (Landscape) --- */
+.redeem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 800px) {
+  .redeem-grid {
+    grid-template-columns: 1fr 1fr; /* Redeem အကွက်များကို PC/Landscape မှာ ၂ ကွက်စီပြရန် */
+  }
+}
+
 .redeem-card {
   background: #1e293b;
   border-radius: 15px;
   padding: 15px;
-  margin-bottom: 12px;
 }
 
 .card-header { display: flex; align-items: center; margin-bottom: 10px; }
@@ -152,13 +176,12 @@ body {
   padding: 10px 15px;
 }
 
-.code-text { color: #2ecc71; font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
+.code-text { color: #2ecc71; font-size: 17px; font-weight: 700; }
 .call-btn {
   background: #ef4444; color: #fff; text-decoration: none;
   padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
 }
 
-/* --- Steps --- */
 .step { display: flex; gap: 12px; margin-bottom: 10px; font-size: 13px; color: #94a3b8; line-height: 1.6; }
 .step-n {
   background: #3b82f6; min-width: 22px; height: 22px; border-radius: 50%;
@@ -176,105 +199,85 @@ body {
     <div class="subtitle">Secure Internet Solution</div>
   </div>
 
-  <div class="card">
-    <div class="section-title">📥 Download App</div>
-    <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" class="download-btn btn-link">
-      🚀 DIRECT DOWNLOAD APK
-    </a>
-  </div>
-
-  <div class="card">
-    <div class="section-title">💎 VIP Premium</div>
-    <div class="vip-pricing-box">
-      <span class="vip-duration">Unlimited Access (1 Month)</span>
-      <span class="vip-price">50 THB</span>
-    </div>
-    <a href="https://m.me/kyawkolatt4989" class="buy-btn btn-link" target="_blank">
-      💬 ဝယ်ယူရန် ဆက်သွယ်ပါ
-    </a>
-  </div>
-
-  <div class="card">
-    <div class="section-title">📖 Dtac Game Plan ဝယ်ယူနည်း</div>
-    <div class="step"><div class="step-n">1</div> Dtac app ထဲဝင်ပါ။</div>
-    <div class="step"><div class="step-n">2</div> Popular services (အထူးဝန်ဆောင်မှုများ) ကိုနှိပ်ပါ။</div>
-    <div class="step"><div class="step-n">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
-    <div class="step"><div class="step-n">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
-    <div class="step"><div class="step-n">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပြီး ဝယ်ယူပါ။</div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">🎁 Redeem Your Codes</div>
-    
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle dtac-circle">dtac</div>
-        <div class="brand-text">DTAC JAIDEE</div>
-      </div>
-      <span class="price-tag">30 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*117*30#</span>
-        <a href="tel:*117*30%23" class="call-btn">Call Now</a>
-      </div>
+  <div class="content-grid">
+    <div class="card">
+      <div class="section-title">📥 Download App</div>
+      <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" class="download-btn btn-link">
+        🚀 DIRECT DOWNLOAD APK
+      </a>
     </div>
 
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle true-circle">true</div>
-        <div class="brand-text">TRUE VDO</div>
+    <div class="card">
+      <div class="section-title">💎 VIP Premium</div>
+      <div class="vip-pricing-box">
+        <span class="vip-duration">Unlimited Access (1 Month)</span>
+        <span class="vip-price">50 THB</span>
       </div>
-      <span class="price-tag">85 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*900*8234#</span>
-        <a href="tel:*900*8234%23" class="call-btn">Call Now</a>
-      </div>
+      <a href="https://m.me/kyawkolatt4989" class="buy-btn btn-link" target="_blank">
+        💬 ဝယ်ယူရန် ဆက်သွယ်ပါ
+      </a>
     </div>
 
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle true-circle">true</div>
-        <div class="brand-text">TRUE TWITTER</div>
-      </div>
-      <span class="price-tag">53 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*900*3509#</span>
-        <a href="tel:*900*3509%23" class="call-btn">Call Now</a>
-      </div>
+    <div class="card">
+      <div class="section-title">📖 Dtac Game Plan ဝယ်ယူနည်း</div>
+      <div class="step"><div class="step-n">1</div> Dtac app ထဲဝင်ပါ။</div>
+      <div class="step"><div class="step-n">2</div> Popular services ကိုနှိပ်ပါ။</div>
+      <div class="step"><div class="step-n">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
+      <div class="step"><div class="step-n">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
+      <div class="step"><div class="step-n">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပါ။</div>
     </div>
 
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle true-circle">true</div>
-        <div class="brand-text">TRUE VIBER</div>
-      </div>
-      <span class="price-tag">53 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*900*3809#</span>
-        <a href="tel:*900*3809%23" class="call-btn">Call Now</a>
-      </div>
-    </div>
+    <div class="card redeem-section">
+      <div class="section-title">🎁 Redeem Your Codes</div>
+      
+      <div class="redeem-grid">
+        <div class="redeem-card">
+          <div class="card-header">
+            <div class="logo-circle dtac-circle">dtac</div>
+            <div class="brand-text">DTAC JAIDEE</div>
+          </div>
+          <span class="price-tag">30 THB</span>
+          <div class="dial-box">
+            <span class="code-text">*117*30#</span>
+            <a href="tel:*117*30%23" class="call-btn">Call Now</a>
+          </div>
+        </div>
 
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle ais-circle">ais</div>
-        <div class="brand-text">AIS PLAY</div>
-      </div>
-      <span class="price-tag">64 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*777*885#</span>
-        <a href="tel:*777*885%23" class="call-btn">Call Now</a>
-      </div>
-    </div>
+        <div class="redeem-card">
+          <div class="card-header">
+            <div class="logo-circle true-circle">true</div>
+            <div class="brand-text">TRUE VDO</div>
+          </div>
+          <span class="price-tag">85 THB</span>
+          <div class="dial-box">
+            <span class="code-text">*900*8234#</span>
+            <a href="tel:*900*8234%23" class="call-btn">Call Now</a>
+          </div>
+        </div>
 
-    <div class="redeem-card">
-      <div class="card-header">
-        <div class="logo-circle ais-circle">ais</div>
-        <div class="brand-text">AIS 64 KBPS</div>
-      </div>
-      <span class="price-tag">32 THB</span>
-      <div class="dial-box">
-        <span class="code-text">*777*7067#</span>
-        <a href="tel:*777*7067%23" class="call-btn">Call Now</a>
+        <div class="redeem-card">
+          <div class="card-header">
+            <div class="logo-circle true-circle">true</div>
+            <div class="brand-text">TRUE TWITTER</div>
+          </div>
+          <span class="price-tag">53 THB</span>
+          <div class="dial-box">
+            <span class="code-text">*900*3509#</span>
+            <a href="tel:*900*3509%23" class="call-btn">Call Now</a>
+          </div>
+        </div>
+
+        <div class="redeem-card">
+          <div class="card-header">
+            <div class="logo-circle ais-circle">ais</div>
+            <div class="brand-text">AIS PLAY</div>
+          </div>
+          <span class="price-tag">64 THB</span>
+          <div class="dial-box">
+            <span class="code-text">*777*885#</span>
+            <a href="tel:*777*885%23" class="call-btn">Call Now</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

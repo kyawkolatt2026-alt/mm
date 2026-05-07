@@ -6,6 +6,8 @@
 <title>AGE VPN</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -19,18 +21,39 @@ body {
   padding: 20px;
 }
 
-/* MAIN TITLE */
-.title {
+/* --- လှပတဲ့ ခေါင်းစဉ်ဒီဇိုင်းအသစ် --- */
+.header-box {
   text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  background: linear-gradient(90deg, #f87171, #fb7185);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  padding: 20px 0;
 }
 
-/* SECTION TITLE */
+.title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  text-shadow: 0 0 10px #f87171, 0 0 20px #fb7185, 0 0 30px #f43f5e;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #fb7185;
+  margin-top: 5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #f87171, 0 0 20px #fb7185; }
+  to { text-shadow: 0 0 20px #fb7185, 0 0 30px #f43f5e, 0 0 40px #ef4444; }
+}
+/* ------------------------------- */
+
 .section-title {
   font-size: 16px;
   font-weight: bold;
@@ -40,8 +63,7 @@ body {
   color: #f87171;
 }
 
-/* Glass Card */
-.card, .server-card {
+.card {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
@@ -50,65 +72,60 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Info */
-.info {
+.btn-link {
+  display: block;
   text-align: center;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-
-/* Button */
-.btn {
-  width: 100%;
+  text-decoration: none;
   padding: 14px;
-  border: none;
   border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
   margin-top: 15px;
-  cursor: pointer;
-  background: linear-gradient(90deg, #ef4444, #f97316);
   color: white;
   transition: 0.3s;
 }
 
-.btn.copied {
-  background: linear-gradient(90deg, #22c55e, #4ade80);
+.download-color { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.vip-buy-btn { background: linear-gradient(90deg, #facc15, #eab308); color: #000; font-size: 14px; padding: 10px; }
+
+.redeem-card {
+  background-color: #2c2f3e;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
-/* Server */
-.server-top {
+.card-header { display: flex; align-items: center; margin-bottom: 5px; }
+.logo-circle {
+  width: 40px; height: 40px; border-radius: 50%; display: flex;
+  justify-content: center; align-items: center; font-size: 11px;
+  font-weight: bold; margin-right: 12px; color: #fff;
+}
+
+.dtac-circle { background-color: #00bfff; }
+.true-circle { background-color: #ff0000; }
+.ais-circle { background-color: #94d500; }
+
+.brand-text { color: #f39c12; font-weight: bold; font-size: 16px; }
+.price-text { color: #7f8c8d; font-size: 13px; margin-left: 52px; margin-bottom: 15px; }
+
+.dial-action-box {
+  background-color: #1e212d;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 10px 15px;
 }
 
-.server-name {
-  font-size: 16px;
-  font-weight: bold;
-}
+.code-num { color: #2ecc71; font-size: 18px; font-weight: bold; letter-spacing: 1px; }
+.call-now-btn { background-color: #ff4757; color: white; text-decoration: none; padding: 8px 15px; border-radius: 8px; font-size: 13px; font-weight: bold; }
 
-.status {
-  font-size: 13px;
-  font-weight: bold;
-  color: #22c55e;
-}
-
-.server-info {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* Guide */
-.guide {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.warning {
-  margin-top: 10px;
-  color: #facc15;
+.step-item { display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 14px; line-height: 1.5; }
+.step-num {
+  background: #f87171; color: #fff; min-width: 22px; height: 22px;
+  border-radius: 50%; display: flex; justify-content: center;
+  align-items: center; font-size: 12px; margin-right: 10px; margin-top: 2px;
 }
 </style>
 </head>
@@ -117,71 +134,115 @@ body {
 
 <div class="container">
 
-  <div class="title">🚀 AGE VPN</div>
+  <div class="header-box">
+    <div class="title">AGE VPN</div>
+    <div class="subtitle">STAY SAFE • UNLOCK WEB</div>
+  </div>
 
-  <!-- KEY SECTION -->
   <div class="card">
-    <div class="section-title">🔑 Access Key</div>
-
-    <div class="info">
-      Data: 1000 GB <br>
-      Exp: 2026-05-03
-    </div>
-
-    <button class="btn" id="copyBtn" onclick="copyKey()">📋 COPY KEY</button>
+    <div class="section-title">📥 Application</div>
+    <a href="https://drive.google.com/file/d/1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO/view?usp=drivesdk" class="btn-link download-color" target="_blank">
+      🚀 DOWNLOAD AGE VPN
+    </a>
   </div>
 
-  <!-- SERVER SECTION -->
-  <div class="server-card">
-    <div class="section-title">🌍 Server Info</div>
-
-    <div class="server-top">
-      <div class="server-name">🇹🇭 Thailand Server</div>
-      <div class="status">● Online</div>
-    </div>
-
-    <div class="server-info">
-      📶 Speed: Good <br>
-      🌍 Ping: 35ms
+  <div class="card">
+    <div class="section-title">💎 VIP Premium</div>
+    <div style="text-align: center;">
+      <span style="font-size: 18px; font-weight: bold;">Vip (1 Month)</span><br>
+      <span style="font-size: 22px; font-weight: bold; color: #facc15;">50 THB</span>
+      <a href="https://m.me/kyawkolatt4989" class="btn-link vip-buy-btn" target="_blank">
+        💬 ဝယ်ယူရန် ဤနေရာကိုနှိပ်ပါ
+      </a>
     </div>
   </div>
 
-  <!-- GUIDE SECTION -->
-  <div class="card guide">
-    <div class="section-title">📌 အသုံးပြုနည်း</div>
+  <div class="card">
+    <div class="section-title">📖 Dtac Game Plan ဝယ်ယူနည်း</div>
+    <div class="step-item"><div class="step-num">1</div> Dtac app ထဲဝင်ပါ။</div>
+    <div class="step-item"><div class="step-num">2</div> Popular services ကိုနှိပ်ပါ။</div>
+    <div class="step-item"><div class="step-num">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
+    <div class="step-item"><div class="step-num">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
+    <div class="step-item"><div class="step-num">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပါ။</div>
+  </div>
 
-    1. V2RayTun install<br>
-    2. COPY KEY နှိပ်ပါ<br>
-    3. App ထဲ paste လုပ်ပါ<br>
-    4. Connect လုပ်ပါ<br>
+  <div class="card">
+    <div class="section-title">🎁 Redeem Your Codes</div>
+    
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle dtac-circle">dtac</div>
+        <div class="brand-text">DTAC JAIDEE</div>
+      </div>
+      <div class="price-text">30 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*117*30#</div>
+        <a href="tel:*117*30%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
 
-    <div class="warning">⚠️ မရရင် restart လုပ်ပါ</div>
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle true-circle">true</div>
+        <div class="brand-text">TRUE VDO</div>
+      </div>
+      <div class="price-text">85 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*900*8234#</div>
+        <a href="tel:*900*8234%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
+
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle true-circle">true</div>
+        <div class="brand-text">TRUE TWITTER</div>
+      </div>
+      <div class="price-text">53 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*900*3509#</div>
+        <a href="tel:*900*3509%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
+
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle true-circle">true</div>
+        <div class="brand-text">TRUE VIBER</div>
+      </div>
+      <div class="price-text">53 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*900*3809#</div>
+        <a href="tel:*900*3809%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
+
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle ais-circle">ais</div>
+        <div class="brand-text">AIS PLAY</div>
+      </div>
+      <div class="price-text">64 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*777*885#</div>
+        <a href="tel:*777*885%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
+
+    <div class="redeem-card">
+      <div class="card-header">
+        <div class="logo-circle ais-circle">ais</div>
+        <div class="brand-text">AIS 64 KBPS</div>
+      </div>
+      <div class="price-text">32 THB</div>
+      <div class="dial-action-box">
+        <div class="code-num">*777*7067#</div>
+        <a href="tel:*777*7067%23" class="call-now-btn">Call Now</a>
+      </div>
+    </div>
   </div>
 
 </div>
-
-<script>
-function copyKey() {
-  const key = "vless://5ae34223-7fcb-43bd-9b12-255f8abbf29d@117.18.127.172:3886?type=tcp&encryption=none&security=none#For%20mm-brykadll";
-
-  const textarea = document.createElement("textarea");
-  textarea.value = key;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
-
-  const btn = document.getElementById("copyBtn");
-
-  btn.innerText = "Copied ✅";
-  btn.classList.add("copied");
-
-  setTimeout(() => {
-    btn.innerText = "📋 COPY KEY";
-    btn.classList.remove("copied");
-  }, 2000);
-}
-</script>
 
 </body>
 </html>

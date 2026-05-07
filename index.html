@@ -25,7 +25,7 @@ body {
 
 .main-wrapper {
   width: 100%;
-  max-width: 900px; /* Landscape မှာ ပိုကျယ်ကျယ်ပြနိုင်ရန် width တိုးထားသည် */
+  max-width: 1000px; /* Landscape အတွက် Width ကို ပိုကျယ်ပေးထားသည် */
   background: #111827;
   min-height: 100vh;
   box-shadow: 0 0 100px rgba(0,0,0,0.6);
@@ -33,7 +33,7 @@ body {
   box-sizing: border-box;
 }
 
-/* --- Header Section --- */
+/* --- Header --- */
 .header-box {
   text-align: center;
   padding: 40px 0 30px 0;
@@ -48,7 +48,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  letter-spacing: -1px;
 }
 
 .subtitle {
@@ -58,32 +57,30 @@ body {
   text-transform: uppercase;
   margin-top: 5px;
   font-weight: 700;
-  opacity: 0.9;
 }
 
-/* --- Responsive Grid System --- */
+/* --- Grid System --- */
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Default: Mobile မှာ တစ်ကွက်ပဲပြသည် */
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
-/* Landscape သို့မဟုတ် PC View မှာ ၂ ကွက်ပြိုင်ပြရန် */
-@media (min-width: 650px) {
+/* Tablet & PC Landscape View */
+@media (min-width: 768px) {
   .content-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* အပေါ်ကအကွက်တွေကို ၂ ကွက်စီပြမည် */
   }
-  .header-box { grid-column: span 2; } /* Header ကို အပြည့်ယူစေရန် */
-  .redeem-section { grid-column: span 2; } /* Redeem အကွက်ကို အောက်မှာ အပြည့်ပြရန် */
+  .header-box, .redeem-section {
+    grid-column: span 2; /* Header နဲ့ Redeem ကို အပြည့်ပြမည် */
+  }
 }
 
-/* --- Card Styles --- */
 .card {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  height: fit-content;
 }
 
 .section-title {
@@ -96,7 +93,7 @@ body {
   padding-left: 10px;
 }
 
-/* --- VIP Pricing Section --- */
+/* --- VIP Pricing --- */
 .vip-pricing-box {
   background: linear-gradient(145deg, rgba(250, 204, 21, 0.1), rgba(0,0,0,0));
   border: 1px solid rgba(250, 204, 21, 0.2);
@@ -104,13 +101,6 @@ body {
   padding: 20px;
   margin-bottom: 15px;
   text-align: center;
-}
-
-.vip-duration {
-  display: block;
-  font-size: 16px;
-  color: #cbd5e1;
-  margin-bottom: 5px;
 }
 
 .vip-price {
@@ -131,19 +121,25 @@ body {
   font-weight: 700;
 }
 
-.download-btn { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+.download-btn { background: #3b82f6; color: white; }
 .buy-btn { background: #facc15; color: #111827; }
 
-/* --- Redeem List Grid (Landscape) --- */
+/* --- Redeem Grid (၆ ခုလုံးပါဝင်သည်) --- */
 .redeem-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 15px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   .redeem-grid {
-    grid-template-columns: 1fr 1fr; /* Redeem အကွက်များကို PC/Landscape မှာ ၂ ကွက်စီပြရန် */
+    grid-template-columns: 1fr 1fr; /* Landscape မှာ ၂ ကွက်စီပြမည် */
+  }
+}
+
+@media (min-width: 900px) {
+  .redeem-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* PC screen ကျယ်ရင် ၃ ကွက်စီပြမည် */
   }
 }
 
@@ -173,19 +169,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px;
 }
 
-.code-text { color: #2ecc71; font-size: 17px; font-weight: 700; }
+.code-text { color: #2ecc71; font-size: 16px; font-weight: 700; }
 .call-btn {
   background: #ef4444; color: #fff; text-decoration: none;
-  padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+  padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700;
 }
 
-.step { display: flex; gap: 12px; margin-bottom: 10px; font-size: 13px; color: #94a3b8; line-height: 1.6; }
+.step { display: flex; gap: 12px; margin-bottom: 10px; font-size: 13px; color: #94a3b8; }
 .step-n {
   background: #3b82f6; min-width: 22px; height: 22px; border-radius: 50%;
-  display: flex; justify-content: center; align-items: center; font-size: 11px; font-weight: bold; color: #fff;
+  display: flex; justify-content: center; align-items: center; font-size: 11px; font-weight: bold;
 }
 </style>
 </head>
@@ -210,8 +206,8 @@ body {
     <div class="card">
       <div class="section-title">💎 VIP Premium</div>
       <div class="vip-pricing-box">
-        <span class="vip-duration">Unlimited Access (1 Month)</span>
         <span class="vip-price">50 THB</span>
+        <span style="color:#cbd5e1; font-size:14px;">Unlimited Access (1 Month)</span>
       </div>
       <a href="https://m.me/kyawkolatt4989" class="buy-btn btn-link" target="_blank">
         💬 ဝယ်ယူရန် ဆက်သွယ်ပါ
@@ -224,7 +220,7 @@ body {
       <div class="step"><div class="step-n">2</div> Popular services ကိုနှိပ်ပါ။</div>
       <div class="step"><div class="step-n">3</div> My Choice (ရွေးချယ်မှု) ကိုသွားပါ။</div>
       <div class="step"><div class="step-n">4</div> ရက် ၉၀၊ 0GB၊ 0မိနစ် သတ်မှတ်ပါ။</div>
-      <div class="step"><div class="step-n">5</div> Game plan တစ်ခုတည်းကိုပဲ အမှန်ခြစ်ပါ။</div>
+      <div class="step"><div class="step-n">5</div> Game plan ကိုအမှန်ခြစ်ပါ။</div>
     </div>
 
     <div class="card redeem-section">
@@ -232,51 +228,34 @@ body {
       
       <div class="redeem-grid">
         <div class="redeem-card">
-          <div class="card-header">
-            <div class="logo-circle dtac-circle">dtac</div>
-            <div class="brand-text">DTAC JAIDEE</div>
-          </div>
+          <div class="card-header"><div class="logo-circle dtac-circle">dtac</div><div class="brand-text">DTAC JAIDEE</div></div>
           <span class="price-tag">30 THB</span>
-          <div class="dial-box">
-            <span class="code-text">*117*30#</span>
-            <a href="tel:*117*30%23" class="call-btn">Call Now</a>
-          </div>
+          <div class="dial-box"><span class="code-text">*117*30#</span><a href="tel:*117*30%23" class="call-btn">Call Now</a></div>
         </div>
-
         <div class="redeem-card">
-          <div class="card-header">
-            <div class="logo-circle true-circle">true</div>
-            <div class="brand-text">TRUE VDO</div>
-          </div>
+          <div class="card-header"><div class="logo-circle true-circle">true</div><div class="brand-text">TRUE VDO</div></div>
           <span class="price-tag">85 THB</span>
-          <div class="dial-box">
-            <span class="code-text">*900*8234#</span>
-            <a href="tel:*900*8234%23" class="call-btn">Call Now</a>
-          </div>
+          <div class="dial-box"><span class="code-text">*900*8234#</span><a href="tel:*900*8234%23" class="call-btn">Call Now</a></div>
         </div>
-
         <div class="redeem-card">
-          <div class="card-header">
-            <div class="logo-circle true-circle">true</div>
-            <div class="brand-text">TRUE TWITTER</div>
-          </div>
+          <div class="card-header"><div class="logo-circle true-circle">true</div><div class="brand-text">TRUE TWITTER</div></div>
           <span class="price-tag">53 THB</span>
-          <div class="dial-box">
-            <span class="code-text">*900*3509#</span>
-            <a href="tel:*900*3509%23" class="call-btn">Call Now</a>
-          </div>
+          <div class="dial-box"><span class="code-text">*900*3509#</span><a href="tel:*900*3509%23" class="call-btn">Call Now</a></div>
         </div>
-
         <div class="redeem-card">
-          <div class="card-header">
-            <div class="logo-circle ais-circle">ais</div>
-            <div class="brand-text">AIS PLAY</div>
-          </div>
+          <div class="card-header"><div class="logo-circle true-circle">true</div><div class="brand-text">TRUE VIBER</div></div>
+          <span class="price-tag">53 THB</span>
+          <div class="dial-box"><span class="code-text">*900*3809#</span><a href="tel:*900*3809%23" class="call-btn">Call Now</a></div>
+        </div>
+        <div class="redeem-card">
+          <div class="card-header"><div class="logo-circle ais-circle">ais</div><div class="brand-text">AIS PLAY</div></div>
           <span class="price-tag">64 THB</span>
-          <div class="dial-box">
-            <span class="code-text">*777*885#</span>
-            <a href="tel:*777*885%23" class="call-btn">Call Now</a>
-          </div>
+          <div class="dial-box"><span class="code-text">*777*885#</span><a href="tel:*777*885%23" class="call-btn">Call Now</a></div>
+        </div>
+        <div class="redeem-card">
+          <div class="card-header"><div class="logo-circle ais-circle">ais</div><div class="brand-text">AIS 64 KBPS</div></div>
+          <span class="price-tag">32 THB</span>
+          <div class="dial-box"><span class="code-text">*777*7067#</span><a href="tel:*777*7067%23" class="call-btn">Call Now</a></div>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ body {
   padding: 20px;
 }
 
-/* --- လှပတဲ့ ခေါင်းစဉ်ဒီဇိုင်းအသစ် --- */
+/* --- ခေါင်းစဉ်ဒီဇိုင်း --- */
 .header-box {
   text-align: center;
   margin-bottom: 30px;
@@ -52,7 +52,6 @@ body {
   from { text-shadow: 0 0 10px #f87171, 0 0 20px #fb7185; }
   to { text-shadow: 0 0 20px #fb7185, 0 0 30px #f43f5e, 0 0 40px #ef4444; }
 }
-/* ------------------------------- */
 
 .section-title {
   font-size: 16px;
@@ -85,7 +84,13 @@ body {
   transition: 0.3s;
 }
 
-.download-color { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+/* Direct Download Button Style */
+.download-color { 
+  background: linear-gradient(90deg, #3b82f6, #2563eb); 
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+.download-color:active { transform: scale(0.95); }
+
 .vip-buy-btn { background: linear-gradient(90deg, #facc15, #eab308); color: #000; font-size: 14px; padding: 10px; }
 
 .redeem-card {
@@ -141,8 +146,8 @@ body {
 
   <div class="card">
     <div class="section-title">📥 Application</div>
-    <a href="https://drive.google.com/file/d/1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO/view?usp=drivesdk" class="btn-link download-color" target="_blank">
-      🚀 DOWNLOAD AGE VPN
+    <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" class="btn-link download-color">
+      🚀 DIRECT DOWNLOAD AGE VPN
     </a>
   </div>
 

@@ -75,7 +75,7 @@ body {
   font-weight: 700;
 }
 
-/* --- Grid System --- */
+/* --- Grid System Improved (Masonry-like layout) --- */
 .content-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -85,10 +85,10 @@ body {
 @media (min-width: 768px) {
   .content-grid {
     grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense; /* အကွက်လွတ်မရှိအောင် အလိုအလျောက်ဖြည့်ခိုင်းသည် */
   }
-  .header-box, .redeem-section {
-    grid-column: span 2;
-  }
+  .header-box { grid-column: span 2; }
+  .redeem-section { grid-column: span 2; }
 }
 
 .card {
@@ -98,6 +98,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   flex-direction: column;
+  height: fit-content; /* အကွက်အမြင့်ကို စာသားအတိုင်းပဲ ယူစေသည် */
 }
 
 .section-title {
@@ -118,7 +119,6 @@ body {
   padding: 20px;
   margin-bottom: 15px;
   text-align: center;
-  flex-grow: 1;
 }
 
 .vip-price {
@@ -147,8 +147,6 @@ body {
   font-size: 12px;
   color: #94a3b8;
   margin-top: 10px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
 }
 
 /* --- Redeem Grid --- */
@@ -158,13 +156,8 @@ body {
   gap: 15px;
 }
 
-@media (min-width: 600px) {
-  .redeem-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (min-width: 900px) {
-  .redeem-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
+@media (min-width: 600px) { .redeem-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .redeem-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
 .redeem-card {
   background: #1e293b;
@@ -241,15 +234,6 @@ body {
 
   <div class="content-grid">
     <div class="card">
-      <div class="section-title">📥 Download App</div>
-      <div style="flex-grow:1; display:flex; align-items:center; justify-content:center;">
-          <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" download class="download-btn btn-link" style="width:100%;">
-            🚀 DIRECT DOWNLOAD APK
-          </a>
-      </div>
-    </div>
-
-    <div class="card">
       <div class="section-title">💎 VIP Premium</div>
       <div class="vip-pricing-box">
         <span class="vip-price">50 THB</span>
@@ -259,6 +243,13 @@ body {
         💬 ဝယ်ယူရန် ဆက်သွယ်ပါ
       </a>
       <div class="wait-text">နှိပ်ပြီးရင်ခနစောင့်ပေးပါ</div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">📥 Download App</div>
+      <a href="https://drive.google.com/uc?export=download&id=1FVLfK-pA5A6SmAN4qABWEJDKVLXrv7YO" download class="download-btn btn-link">
+        🚀 DIRECT DOWNLOAD APK
+      </a>
     </div>
 
     <div class="card">
@@ -326,7 +317,6 @@ function updateDateTime() {
     hours = hours ? hours : 12; 
     document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
 }
-
 setInterval(updateDateTime, 1000);
 updateDateTime();
 </script>

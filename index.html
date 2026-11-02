@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VIRGO VPN — Version 2.0</title>
+<title>VIRGO VPN — Version 3.0</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +24,10 @@
     --purple2:#b15cff;
     --green:#23e5b0;
     --bg:#070711;
+}
+
+html {
+    scroll-behavior:smooth;
 }
 
 body {
@@ -79,13 +83,20 @@ body {
     background:rgba(17,17,31,.86);
     border:1px solid rgba(255,255,255,.10);
     backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
     box-shadow:0 30px 90px #0009;
     animation:appear .8s ease;
 }
 
 @keyframes appear {
-    from {opacity:0;transform:translateY(25px);}
-    to {opacity:1;transform:translateY(0);}
+    from {
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card:before {
@@ -95,7 +106,13 @@ body {
     left:10%;
     width:80%;
     height:2px;
-    background:linear-gradient(90deg,transparent,#9364ff,#22e5bd,transparent);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #9364ff,
+        #22e5bd,
+        transparent
+    );
     box-shadow:0 0 20px #986aff;
 }
 
@@ -125,7 +142,10 @@ body {
 }
 
 @keyframes pulse {
-    50% {opacity:.3;transform:scale(.7);}
+    50% {
+        opacity:.3;
+        transform:scale(.7);
+    }
 }
 
 .logo-area {
@@ -139,13 +159,20 @@ body {
     height:125px;
     padding:5px;
     border-radius:34px;
-    background:linear-gradient(135deg,#a36cff,#28205c,#23e5b0);
+    background:linear-gradient(
+        135deg,
+        #a36cff,
+        #28205c,
+        #23e5b0
+    );
     box-shadow:0 0 45px #8657ff55;
     animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float {
-    50% {transform:translateY(-7px);}
+    50% {
+        transform:translateY(-7px);
+    }
 }
 
 .logo {
@@ -164,7 +191,12 @@ body {
     font-size:35px;
     font-weight:900;
     letter-spacing:1px;
-    background:linear-gradient(120deg,#fff,#c4a9ff,#8d67ff);
+    background:linear-gradient(
+        120deg,
+        #fff,
+        #c4a9ff,
+        #8d67ff
+    );
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -256,7 +288,12 @@ body {
     font-size:14px;
     font-weight:800;
     border-radius:18px;
-    background:linear-gradient(120deg,#7045e8,#a04cff,#7146e9);
+    background:linear-gradient(
+        120deg,
+        #7045e8,
+        #a04cff,
+        #7146e9
+    );
     background-size:200% 200%;
     border:1px solid #ffffff30;
     box-shadow:0 12px 35px #7547e955;
@@ -265,7 +302,9 @@ body {
 }
 
 @keyframes gradient {
-    50% {background-position:100% 50%;}
+    50% {
+        background-position:100% 50%;
+    }
 }
 
 .download:hover {
@@ -322,7 +361,12 @@ body {
 .divider {
     height:1px;
     margin:24px 0 19px;
-    background:linear-gradient(90deg,transparent,#ffffff20,transparent);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ffffff20,
+        transparent
+    );
 }
 
 .trust {
@@ -346,9 +390,25 @@ body {
 }
 
 @media(max-width:380px) {
-    .card {padding:28px 17px 22px;}
-    .brand h1 {font-size:29px;}
-    .logo-frame {width:110px;height:110px;}
+    .card {
+        padding:28px 17px 22px;
+    }
+
+    .brand h1 {
+        font-size:29px;
+    }
+
+    .logo-frame {
+        width:110px;
+        height:110px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation:none !important;
+        transition:none !important;
+    }
 }
 </style>
 </head>
@@ -359,22 +419,29 @@ body {
 <div class="orb orb2"></div>
 
 <main class="wrapper">
+
 <section class="card">
 
+    <!-- STATUS -->
     <div class="status">
         <span class="dot"></span>
         OFFICIAL APPLICATION
     </div>
 
+    <!-- LOGO -->
     <div class="logo-area">
         <div class="logo-frame">
-            <img class="logo"
-            src="https://raw.githubusercontent.com/kyawkolatt2026-alt/virgovpn/main/file_00000000db78821181d9b896c0f7b588.png"
-            alt="VIRGO VPN Logo">
+            <img
+                class="logo"
+                src="https://raw.githubusercontent.com/kyawkolatt2026-alt/virgovpn/main/file_00000000db78821181d9b896c0f7b588.png"
+                alt="VIRGO VPN Logo"
+            >
         </div>
     </div>
 
+    <!-- BRAND -->
     <div class="brand">
+
         <h1>VIRGO VPN</h1>
 
         <p class="subtitle">
@@ -384,13 +451,18 @@ body {
 
         <div class="version">
             <i class="fa-solid fa-circle-check"></i>
-            LATEST VERSION 2.0
+            LATEST VERSION 3.0
         </div>
+
     </div>
 
-    <div class="section-title">WHY CHOOSE VIRGO VPN?</div>
+    <!-- FEATURES -->
+    <div class="section-title">
+        WHY CHOOSE VIRGO VPN?
+    </div>
 
     <div class="features">
+
         <div class="feature">
             <i class="fa-solid fa-shield-halved"></i>
             <span>SECURE</span>
@@ -405,27 +477,31 @@ body {
             <i class="fa-solid fa-earth-asia"></i>
             <span>GLOBAL</span>
         </div>
+
     </div>
 
+    <!-- DOWNLOAD -->
     <div class="download-area">
-        <a
-        href="https://github.com/kyawkolatt2026-alt/virgovpn/releases/download/V2.0/VIRGO_VPN-mini-graphs-vip.apk"
-        class="download"
-        download>
 
+        <a
+            href="https://github.com/kyawkolatt2026-alt/mm/releases/download/V3.0/VIRGO_VPN_v3.apk"
+            class="download"
+        >
             <i class="fa-brands fa-android"></i>
             <span>DOWNLOAD FOR ANDROID</span>
             <i class="fa-solid fa-arrow-down"></i>
-
         </a>
 
         <p class="download-info">
             <i class="fa-solid fa-download"></i>
-            Download VIRGO VPN Version 2.0 APK
+            Download VIRGO VPN Version 3.0 APK
         </p>
+
     </div>
 
+    <!-- FILE INFO -->
     <div class="file-card">
+
         <div class="file-item">
             <i class="fa-brands fa-android"></i>
             <span>Android</span>
@@ -440,8 +516,10 @@ body {
             <i class="fa-solid fa-crown"></i>
             <span>VIP Edition</span>
         </div>
+
     </div>
 
+    <!-- FOOTER -->
     <div class="divider"></div>
 
     <div class="trust">
@@ -454,6 +532,7 @@ body {
     </div>
 
 </section>
+
 </main>
 
 </body>
